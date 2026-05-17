@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  {% include html-head.html %}
+  <body>
+    {% include header.html %}
+    <main>
+      {{ content }}
+    </main>
+    {% include footer.html %}	<a href="#" class="back-to-top">
+		<img src="{{ site.baseurl }}/assets/images/to-top.png" alt="topに戻る" width="382" height="680">
+	</a>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+	<script src="{{ site.baseurl }}/assets/js/script.js"></script>
+  </body>
+</html>

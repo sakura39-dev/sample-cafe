@@ -1,0 +1,29 @@
+<header>
+  <div class="container d-flex">
+    <a href="/">
+      <h1>
+        SakuRa Cafe
+      </h1>
+    </a>
+
+    <div class="nav-wrapper">
+      <input type="checkbox" id="nav-toggle" class="d-md-none" hidden>
+      
+      <label class="nav-icon d-md-none" for="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      
+      <div class="overlay d-md-none"></div>
+      
+      <nav class="nav">
+        <ul>
+          {% for item in site.data.navigation %}
+            <li><a href="{{ item.link }}"{% if page.url == item.link %} class="current"{% endif %}>{{ item.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

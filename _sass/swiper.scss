@@ -1,0 +1,24 @@
+.swiper {
+  width: 100%;
+  height: 350px;
+}
+
+.swiper-slide {
+	height: auto;
+}
+
+.swiper-slide img {
+	height: 350px;
+	object-fit: cover;
+	object-position: 50% 35%;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $color-sub;
+}
+
+@media (min-width: 768px) {
+	.swiper {
+		width: MIN(80%, 800px);
+	}
+}

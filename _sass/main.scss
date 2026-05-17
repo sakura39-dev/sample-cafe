@@ -1,0 +1,745 @@
+$color-base: #FAF7F0;
+$color-accent: #DF866F;
+$color-sub: #658C81;
+
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	scroll-padding-top: 80px;
+	scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Zen Maru Gothic", "メイリオ", meiryo,"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+	font-size: 16px;
+	line-height: 1.5;
+	background: $color-base;
+	color: #4A4A4A;
+	min-width: 360px;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+h1, h2 {
+	font-family: "Paprika", system-ui;
+}
+
+h3, h4 {
+  font-weight: 500;
+	color: $color-sub;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.8em;
+	color: $color-accent;
+	text-align: center;
+	margin-bottom: 2rem;
+	text-shadow: 2px 4px 4px #00000020;
+}
+
+h3, h4 {
+	font-size: 1.5em;
+}
+
+strong {
+	display: inline-block;
+	font-size: 0.8em;
+	line-height: 1.2em;
+	margin-left: 3em;
+}
+
+.container {
+	width: MIN(90%, 1200px);
+	min-width: 360px;
+	margin: 0 auto;
+}
+
+section {
+	margin-bottom: 4em;
+}
+
+.d-block {
+	display: block;
+}
+
+.d-flex {
+	display: flex;
+}
+
+.d-none {
+	display: none;
+}
+
+@media (min-width: 768px) {
+	.d-md-none{
+		display: none;
+	}
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.btn {
+	color: #FFF;
+	font-weight: 700;
+	background-color: $color-accent;
+	border-radius: 8px;
+	box-shadow: 2px 2px 4px 0px #00000020;
+	padding: 0.25em 1em;
+	display: inline-block;
+	width: 10em;
+	text-align: center;
+}
+
+.btn.sub {
+	background-color: $color-sub;
+}
+
+.btns {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+@media (min-width: 768px) {
+	.btns {
+		flex-direction: row;
+	}
+}
+
+.card {
+	width: 100%;
+	background-color: #FFF;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	border-radius: 0.8em;
+	padding: 1em;
+	box-shadow: 2px 2px 4px 0px #00000020;
+}
+
+.card p {
+	flex-grow: 1;
+}
+
+.text-link {
+	margin-top: 0.5em;
+	color: $color-sub;
+	font-weight: 500;
+	text-align: right;
+}
+
+.card-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5em;
+	margin-bottom: 3em;
+}
+
+@media (min-width: 768px) {
+	.card-list {
+		flex-direction: row;
+	}
+}
+
+a {
+	transition-duration: .5s;
+}
+
+a:hover {
+	transform: scale(0.95);
+}
+
+a:current {
+	transform: scale(0.95);
+}
+
+a.current::before {
+	content: "\02A";
+	display: inline-block;
+	height: 1em;
+	vertical-align: middle;
+	margin-right: 2px;
+}
+
+.interval {
+	margin: 3em 0;
+}
+
+p.interval {
+	line-height: 2;
+	font-size: 1.2em;
+	text-align: center;
+}
+
+/* Header */
+header {
+	position: sticky;
+	top: 0;
+	background: $color-base;
+	height: 80px;
+	padding: 16px 0;
+	margin-bottom: 4em;
+	color: $color-accent;
+	box-shadow: 0px 2px 4px 0px #00000020;
+	z-index: 3;
+}
+
+header h1 {
+	padding-left: 1.6em;
+	background: url(../images/cup-logo.svg) no-repeat left center / contain;
+}
+
+header .container {
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+/* MainVisual */
+#main-visual {
+	height: MIN(134vw, 600px);
+	max-width: 1480px;
+	margin: 0 auto 3em;
+	position: relative;
+}
+
+#main-visual .wrap {
+	height: MIN(120vw, 480px);
+	background-image: url(../images/teacup.jpg);
+	background-position-x: center;
+	background-position-y: bottom;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#main-visual h2 {
+	font-family: "Zen Maru Gothic", sans-serif;
+	padding: 32px 0;
+	font-size: MIN(7.5vw, 2em);
+	font-weight: 500;
+	color: $color-sub;
+	text-align: left;
+}
+
+#main-visual p {
+	font-weight: 500;
+	margin-bottom: 3em;
+	text-shadow: 0 0 3px #ffffff90;
+}
+
+#main-visual .cat {
+	width: MIN(60%, 400px);
+	position: absolute;
+	bottom: 0;
+	transform: scale(-1, 1);
+	filter: drop-shadow(-4px 4px 6px #00000030);
+}
+
+@media (min-width: 768px) {
+	#main-visual .wrap {
+		background-position-x: right;
+	}
+
+	#main-visual .container {
+		width: MIN(80%, 960px);
+	}
+
+	#main-visual h2 {
+		padding: 50px 0;
+	}
+
+	#main-visual .cat {
+		left: 10%;
+	}
+}
+
+@media (min-width: 992px) {
+	#main-visual p {
+		margin-bottom: 4em;
+	}
+}
+
+/* About */
+#about.d-flex {
+	flex-direction: column;
+	gap: 2em;
+	align-items: center;
+	margin: 4em auto;
+}
+
+#about img {
+	width: 80%;
+}
+
+@media (min-width: 992px) {
+	#about.d-flex {
+		flex-direction: row-reverse;
+		justify-content: space-around;
+	}
+	#about img {
+		width: 40%;
+	}
+}
+
+
+/* Concept */
+@media (min-width: 768px) {
+	#concept .card-list {
+		flex-direction: column;
+	}
+}
+
+@media (min-width: 992px) {
+	#concept .card-list {
+		flex-direction: row;
+	}
+}
+
+#concept .cat-carousel {
+	height: 160px;
+	background: gray;
+}
+
+/* Plan & Menu */
+#plan-and-menu h3 {
+	font-weight: 700;
+	margin-bottom: 1em;
+}
+
+.icon-cat {
+	padding-left: 1.6em;
+	background: url(../images/i_cat_face.svg) no-repeat left bottom / 1.3em;
+}
+
+.icon-cup {
+	padding-left: 1.6em;
+	background: url(../images/i_tea_cup.svg) no-repeat left bottom / 1.3em;
+}
+
+.annotation {
+	margin: 2em 0.5em;
+}
+
+.fee {
+	color: #658C81;
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	font-size: 1.4em;
+	font-weight: 700;
+	padding: 0 1em;
+}
+
+.price span {
+	font-size: 2em;
+	color: #DF866F;
+	margin-right: 0.2em;
+}
+
+.desc {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	margin-bottom: 2em;
+}
+
+.desc p {
+	line-height: 2;
+}
+
+.desc img {
+	margin: 0 auto;
+}
+
+.cafe-menu dl {
+	font-size: 1.2em;
+	line-height: 2;
+}
+
+.cafe-menu .d-flex {
+	flex-direction: column;
+}
+
+@media (min-width: 768px) {
+	.desc {
+		flex-direction: row;
+		align-items: center;
+		align-content: center;
+	}
+
+	.desc p {
+		margin-bottom: 5em;
+	}
+
+	.desc img{
+			width: 60%;
+	}
+
+	.fee {
+		padding: 0;
+	}
+
+	.cafe-menu .d-flex {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.cafe-menu .d-flex.column {
+		flex-direction: column;
+		flex-wrap: wrap;
+		max-height: 80px;
+	}
+
+	.cafe-menu .d-flex > div {
+		width: 40%;
+	}
+}
+
+/* ShopInfo */
+#shop-info .d-flex {
+	flex-direction: column;
+	gap: 3em;
+}
+
+.shop-card {
+	line-height: 2;
+}
+
+.shop-card .name {
+	font-size: 1.2em;
+	margin-left: 2em;
+}
+
+.shop-card i {
+	font-size: 1.1em;
+	margin-right: 1em;
+	color: $color-sub;
+}
+iframe {
+	width: 100%;
+}
+
+@media (min-width: 768px) {
+	#shop-info .d-flex {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	iframe {
+		width: 48%
+	}
+}
+
+/* footer */
+footer {
+	background-color: $color-sub;
+	color: #FFF;
+	box-shadow: 0px -2px 4px 0px #00000020;
+	text-align: center;
+	padding: 2em 0;
+}
+
+.sns-link {
+	display: flex;
+	gap: 1em;
+	justify-content: center;
+	margin-bottom: 1.5em;
+}
+
+small {
+	font-family: "Paprika", system-ui;
+	font-size: 0.9em;
+	color: #401B13;
+}
+
+/* Members */
+#members .card {
+	padding: 2em 2em 2.5em 2em;
+}
+
+#members .card img {
+	margin-bottom: 1em;
+	aspect-ratio: 4/3;
+	object-fit: cover;
+	object-position: 50% 25%;
+}
+
+.notebook {
+  line-height: 2; /* 行間を広くとる */
+  background-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 92%, /* 線の上側の透明領域 */
+    #ccc 92%,         /* 線を薄いグレーに設定 */
+    #ccc 100%         /* 線の下側 */
+  );
+  background-size: 100% 2em; /* 行の高さと合わせる */
+}
+
+/* 下層ページのタイトル */
+.title-wrapper {
+	position: relative;
+	margin: 0 auto;
+	max-width: 800px;
+	max-height: 640px;
+}
+
+/* 複数の写真を背景に設定するためのgrid-container */
+.title-image {
+	display: grid;
+	aspect-ratio: 5/4;
+	filter: saturate(40%) opacity(0.8);
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-column-gap: 8px;
+	grid-row-gap: 8px;
+}
+
+/* タイトルの背景として使うgrid-item */
+#members .image-item1 {
+	grid-area: 1 / 1 / 2 / 3;
+	aspect-ratio: 16/9;
+	background: url(../images/cat-member1.jpg) no-repeat center / cover;
+}
+
+#members .image-item2 {
+	grid-area: 1 / 3 / 3 / 4;
+	background: url(../images/cat-member3.jpg) no-repeat center / cover;
+}
+
+#members .image-item3 {
+	grid-area: 2 / 1 / 4 / 2;
+	background: url(../images/cat-member4.jpg) no-repeat center / cover;
+}
+
+#members .image-item4 {
+	grid-area: 3 / 2 / 4 / 4;
+	aspect-ratio: 16/9;
+	background: url(../images/cat-member2.jpg) no-repeat center / cover;
+}
+
+#saving-cats .image-item1 {
+	grid-area: 1 / 1 / 2 / 3;
+	aspect-ratio: 16/9;
+	background: url(../images/saving1.jpg) no-repeat center / cover;
+}
+
+#saving-cats .image-item2 {
+	grid-area: 1 / 3 / 3 / 4;
+	background: url(../images/saving2.jpg) no-repeat center / cover;
+}
+
+#saving-cats .image-item3 {
+	grid-area: 2 / 1 / 4 / 2;
+	background: url(../images/saving3.jpg) no-repeat center / cover;
+}
+
+#saving-cats .image-item4 {
+	grid-area: 3 / 2 / 4 / 4;
+	aspect-ratio: 16/9;
+	background: url(../images/logo-ol.svg) no-repeat center / 50%, #ddd;
+}
+
+#menu {
+  .image-item1 {
+    grid-area: 1 / 1 / 2 / 3;
+    aspect-ratio: 16/9;
+    background: url(../images/pudding.jpg) no-repeat center / cover;
+  }
+
+  .image-item2 {
+    grid-area: 1 / 3 / 3 / 4;
+    background: url(../images/tea.jpg) no-repeat center / cover;
+  }
+
+  .image-item3 {
+    grid-area: 2 / 1 / 4 / 2;
+    background: url(../images/iced-coffee.jpg) no-repeat center / cover;
+  }
+
+  .image-item4 {
+    grid-area: 3 / 2 / 4 / 4;
+    aspect-ratio: 16/9;
+    background: url(../images/pizza.jpg) no-repeat center / cover;
+  }
+  
+  .dl-container {
+    font-size: 1.5em;
+  }
+}
+
+/* 見出しの */
+.heading-wrapper {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-image: radial-gradient(
+		ellipse,
+		rgba(250, 247, 240, 1),
+		rgba(250, 247, 240, 0.7) 20%,
+		rgba(250, 247, 240, 0.04) 60%,
+		rgba(250, 247, 240, 0) 80%
+	);
+	display: grid;
+	place-items: center;
+}
+.heading-wrapper h2 {
+	margin: 0;
+	font-size: 2em;
+  color: rgba(0, 0, 0, 0);
+  text-shadow: 3px 3px 0 $color-accent;
+  -webkit-text-stroke: 1px #888;
+  text-stroke: 1px #888;
+}
+
+@media (min-width: 768px) {
+	#members .card-list {
+		flex-wrap: wrap;
+	}
+
+	#members .card {
+		width: 48%;
+	}
+}
+
+.back-to-top {
+  position: fixed;
+  right: 20px;   /* 画面右からの距離 */
+  bottom: 20px;  /* 画面下からの距離 */
+  width: 60px;   /* 横幅を指定（スマホなら50px程度） */
+  z-index: 1000;
+  /* 最初は非表示 */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px); /* 少し下に下げておく */
+  transition: all 0.5s; /* 0.5秒かけて変化させる */
+}
+
+/* スクロールした時に追加するクラス */
+.back-to-top.is-show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* 元の位置に戻る */
+}
+
+.back-to-top img {
+  width: 100%;   /* 親要素の幅に合わせる */
+  height: auto;  /* 縦横比を維持 */
+  display: block;
+	filter: drop-shadow(4px 4px 4px #00000030);
+}
+
+/* マウスを乗せた時に少し浮かせる演出 */
+.back-to-top:hover {
+  transform: translateY(-5px);
+}
+
+/* アニメーション前の状態（隠す） */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px); /* 少し下に配置 */
+  transition: opacity 0.8s, transform 0.8s; /* 0.8秒かけてふわっと */
+}
+
+/* アニメーション後の状態（表示） */
+.fade-in.is-show {
+  opacity: 1;
+  transform: translateY(0); /* 元の位置に戻す */
+}
+
+/* SavingCats & Menu */
+.dl-container {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 2em;
+	line-height: 2em;
+	font-size: 1.2em;
+}
+
+.dl-container .category {
+	margin: 0 0.5em 1.5em;
+}
+
+.dl-container .category > dt {
+	font-family: "Paprika", "Zen Maru Gothic", system-ui;
+	font-size: 1.5em;
+	font-weight: 500;
+	color: $color-sub;
+	margin-bottom: 0.5em;
+}
+
+dl .row {
+	display: flex;
+	justify-content: space-between;
+}
+
+.dl-container figure {
+	position: relative;
+}
+
+.dl-container figure img {
+	object-fit: cover;
+}
+
+.dl-container figcaption {
+	position: absolute;
+	bottom: 0;
+	line-height: 1.5;
+	padding: 0 0.5em;
+	background: #ffffff95;
+}
+
+@media (min-width: 768px) {
+	.dl-container {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 3em;
+	}
+	
+	.dl-container.reverse {
+		flex-direction: row-reverse;
+	}
+	
+	figcaption.md-right {
+		right: 0;
+	}
+
+	.dl-container .category {
+		margin: 0;
+		width: 48%;
+	}
+
+	.dl-container figure {
+		width: 48%;
+	}
+
+	.dl-container figure.portrait img {
+		max-height: 480px; 
+	}
+
+	.dl-container figure.portrait {
+		width: 40%;
+	}
+}

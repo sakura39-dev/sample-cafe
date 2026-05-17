@@ -1,0 +1,93 @@
+.nav ul {
+	display: flex;
+	gap: 1em;
+}
+
+.nav a {
+	font-family: Paprika;
+	/* color: $color-accent; */
+	font-size: 1.3em;
+	display: block;
+}
+
+@media (max-width: 767px) {
+	.nav-wrapper {
+		position: relative;
+	}
+
+	.nav-icon {
+		width: 32px;
+		height: 30px;
+		position: fixed; /* ← fixedにして常に左上固定 */
+		top: 22px;
+		right: MAX(5%, calc((100% - 1200px) / 2));
+		cursor: pointer;
+		z-index: 3;
+		display: inline-block;
+	}
+
+	.nav-icon span {
+		display: block;
+		height: 4px;
+		margin: 6px 0;
+		background: $color-accent;
+		border-radius: 2px;
+		transition: 0.4s;
+	}
+
+	/* ハンバーガーがXに変形 */
+	#nav-toggle:checked + .nav-icon span:nth-child(1) {
+		transform: translateY(10px) rotate(45deg);
+	}
+	#nav-toggle:checked + .nav-icon span:nth-child(2) {
+		opacity: 0;
+	}
+	#nav-toggle:checked + .nav-icon span:nth-child(3) {
+		transform: translateY(-10px) rotate(-45deg);
+	}
+
+	/* オーバーレイ背景 */
+	.overlay {
+		position: fixed;
+		inset: 0;
+		background: rgba(0,0,0,0.5);
+		opacity: 0;
+		pointer-events: none;
+		transition: 0.4s;
+		z-index: 1;
+	}
+
+	#nav-toggle:checked ~ .overlay {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	/* メニュー本体（右から出す） */
+	.nav {
+		position: fixed;
+		top: 0;
+		right: -100%; 
+		width: MIN(60%, 360px);
+		height: 100%;
+		background: #fff;
+		box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+		transition: right 0.4s ease;
+		z-index: 2;
+	}
+
+	/* メニューを開いた時の位置 */
+	#nav-toggle:checked ~ .nav {
+		right: 0;
+	}
+
+	.nav ul {
+		padding-top: 100px;
+		display: grid;
+		gap: 20px;
+		justify-items: center;
+	}
+
+	.nav a:hover {
+		transform: scale(1.1);
+	}
+}
