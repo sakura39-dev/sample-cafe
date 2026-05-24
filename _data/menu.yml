@@ -1,0 +1,50 @@
+drinks:
+  name: "Drinks"
+  reverse: false
+  img: tea-cup.jpg
+  img_alt: 紅茶
+  img_width: 1200
+  img_height: 810
+  items:
+    - name: "紅茶(Hot/Ice)"
+      price: 600
+    - name: "ほうじ茶(Hot/Ice)"
+      price: 600
+    - name: "コーヒー(Hot/Ice)"
+      price: 500
+    - name: "カフェオレ(Hot/Ice)"
+      price: 600
+    - name: "ジンジャーエール"
+      price: 500
+    - name: "オレンジジュース"
+      price: 500
+
+sweets:
+  name: "Sweets"
+  reverse: true
+  img: pudding.jpg
+  img_alt: プリン
+  img_width: 1600
+  img_height: 900
+  items:
+    - name: "プリン"
+      price: 600
+    - name: "チーズケーキ"
+      price: 500
+    - name: "シフォンケーキ"
+      price: 550
+
+snacks:
+  name: "Snacks"
+  reverse: false
+  img: pizza.jpg
+  img_alt: ピザ
+  img_width: 1280
+  img_height: 720
+  items:
+    - name: "ピザ"
+      price: 600
+    - name: "トースト"
+      price: 400
+    - name: "ホットドッグ"
+      price: 550

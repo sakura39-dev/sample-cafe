@@ -31,30 +31,17 @@ title: 猫と会えるカフェで やさしいひとときを
   <h2>Concept</h2>
   <div class="container">
     <ul class="card-list">
-      <li class="card">
-        <h3>猫広場とティールーム</h3>
-        <p>
-          猫と触れ合える猫広場。<br>
-          お茶をゆっくり楽しめるティールーム。<br>
-          スペースが分かれているので、その日の気分で過ごし方を選べます。
-        </p>
-      </li>
-      <li class="card">
-        <h3>ご来店が保護活動に</h3>
-        <p>
-          売り上げの一部を保護活動に充てております。<br>
-          カフェをご利用いただくことが猫たちの未来を支えることにつながります。
-        </p>
-        <a href="saving-cats.html" class="text-link">保護活動について<i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-      </li>
-      <li class="card">
-        <h3>保護猫たちとの交流</h3>
-        <p>
-          猫スタッフは保護猫です。<br>
-          保護猫を迎えたいと思っている方たちとの交流の場として、くつろげる空間づくりを心がけています。
-        </p>
-        <a href="members.html" class="text-link">猫スタッフについて<i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-      </li>
+      {% for concept in site.data.concepts %}
+        <li class="card">
+          <h3>{{ concept.title }}</h3>
+          <p>
+            {{ concept.desc_lines | newline_to_br  }}
+          </p>
+          {% if concept.link_text and concept.link %}
+            <a href="{{ site.baseurl }}{{ concept.link }}" class="text-link">{{ concept.link_text }}<i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+          {% endif %}
+        </li>
+      {% endfor %}
     </ul>
   </div>
   <div class="swiper">
@@ -83,39 +70,18 @@ title: 猫と会えるカフェで やさしいひとときを
     <section class="plan">
       <h3 class="icon-cat">猫広場ご利用プラン</h3>
       <ul class="card-list">
-        <li class="card">
-          <h4>ひといきプラン</h4>
-          <div class="fee">
-            <div class="time"><span>30</span>分</div>
-            <div class="price"><span>800</span>円</div>
-          </div>
-          <p>
-            初めての方におすすめのプラン。<br>
-            ちょっと一息つきたい時や、次のご予定までのすき間時間にもどうぞ。
-          </p>
-        </li>
-        <li class="card">
-          <h4>くつろぎプラン</h4>
-          <div class="fee">
-            <div class="time"><span>90</span>分</div>
-            <div class="price"><span>2200</span>円</div>
-          </div>
-          <p>
-            いちばん人気のプラン。<br>
-            かわいい猫たちと、ごゆるりとお過ごしください。
-          </p>
-        </li>
-        <li class="card">
-          <h4>まったりステイ</h4>
-          <div class="fee">
-            <div class="time"><span>180</span>分</div>
-            <div class="price"><span>4000</span>円</div>
-          </div>
-          <p>
-            お時間に余裕があるときに。<br>
-            猫たちとの癒しの空間をご堪能ください。
-          </p>
-        </li>
+        {% for plan in site.data.plans %}
+          <li class="card">
+            <h4>{{ plan.name }}</h4>
+            <div class="fee">
+              <div class="time"><span>{{ plan.time }}</span>分</div>
+              <div class="price"><span>{{ plan.price }}</span>円</div>
+            </div>
+            <p>
+              {{ plan.desc_lines | newline_to_br }}
+            </p>
+          </li>
+        {% endfor %}
       </ul>
       <div class="annotation">
         <p><i class="fa fa-asterisk" aria-hidden="true"></i>価格は税込みです。</p>
@@ -125,22 +91,12 @@ title: 猫と会えるカフェで やさしいひとときを
     <section class="cafe-menu">
       <h3 class="icon-cup">メニュー</h3>
       <dl class="d-flex column">
-        <div class="row">
-          <dt>紅茶(Hot/Ice)</dt>
-          <dd>600円</dd>
-        </div>
-        <div class="row">
-          <dt>ほうじ茶(Hot/Ice)</dt>
-          <dd>600円</dd>
-        </div>
-        <div class="row">
-          <dt>コーヒー(Hot/Ice)</dt>
-          <dd>550円</dd>
-        </div>
-        <div class="row">
-          <dt>カフェオレ(Hot/Ice)</dt>
-          <dd>600円</dd>
-        </div>
+        {% for item in site.data.menu.drinks.items limit: 4 %}
+          <div class="row">
+            <dt>{{ item.name }}</dt>
+            <dd>{{ item.price }}円</dd>
+          </div>
+        {% endfor %}
       </dl>
       <div class="d-flex">
         <div class="annotation">
@@ -159,15 +115,15 @@ title: 猫と会えるカフェで やさしいひとときを
     <h2>Shop Info</h2>
     <div class="d-flex">
       <div class="shop-card">
-        <p class="name">SakuRa Cafe</p>
-        <p><i class="fa-regular fa-clock"></i>10:00-20:00　不定休</p>
-        <strong>猫広場の受付は通常17:30までですが、当店の都合により早まる場合があります。</strong>
+        <p class="name">{{ site.data.shop-info.name }}</p>
+        <p><i class="fa-regular fa-clock"></i>{{ site.data.shop-info.open_hours }}　{{ site.data.shop-info.closed_days }}</p>
+        <strong>{{ site.data.shop-info.caution }}</strong>
         <address>
-          <p><i class="fa-solid fa-location-dot"></i>猫山市またたび町2-2-2 にゃんこビル2階</p>
-          <p><i class="fa-solid fa-phone"></i>0XX-222-2222</p>
+          <p><i class="fa-solid fa-location-dot"></i>{{ site.data.shop-info.location }}</p>
+          <p><i class="fa-solid fa-phone"></i>{{ site.data.shop-info.phone }}</p>
         </address>
       </div>
-      <iframe title="SakuRa Cafe のGoogleマップ" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.047003381988!2d135.20649807451863!3d34.703994383038136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008e938d5f6fd9%3A0x967149d99ecdf369!2z5oOF5aCx5oqA6KGT5a2m6Zmi!5e0!3m2!1sja!2sjp!4v1776661797538!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      {{ site.data.shop-info.map_html | safe }}
     </div>
   </div>
 </section>

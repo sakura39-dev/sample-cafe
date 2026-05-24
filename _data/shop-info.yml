@@ -1,0 +1,8 @@
+name: SakuRa Cafe
+open_hours: "10:00-20:00"
+closed_days: 不定休
+caution: 猫広場の受付は通常17:30までですが、当店の都合により早まる場合があります。
+location: 猫山市またたび町2-2-2 にゃんこビル2階
+phone: 0XX-222-2222
+map_html: |
+  <iframe title="SakuRa Cafe のGoogleマップ" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.047003381988!2d135.20649807451863!3d34.703994383038136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008e938d5f6fd9%3A0x967149d99ecdf369!2z5oOF5aCx5oqA6KGT5a2m6Zmi!5e0!3m2!1sja!2sjp!4v1776661797538!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
